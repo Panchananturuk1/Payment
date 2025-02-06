@@ -1,0 +1,97 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+.vs/
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+
+# Build artifacts
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+*.tlog
+
+# Package directories
+**/packages/*
+!.nuget/packages.config
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio working files
+.vs/
+
+# Generated files
+Generated\ Files/
+*.generated.cs
+
+# Dependency Cache
+*.pdb
+*.cache
+*.ilk
+*.idb
+*.obj
+*.map
+
+# Publish artifacts
+artifacts/
+.publish/
+
+# NuGet
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Rider IDE
+.idea/
+*.sln.iml
+
