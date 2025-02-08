@@ -50,5 +50,5 @@ Follow these steps to get a copy of the project running on your local machine.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/repository-name.git
+   https://github.com/Panchananturuk1/Payment.git
    cd repository-name
