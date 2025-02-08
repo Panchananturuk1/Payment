@@ -29,20 +29,22 @@ namespace PaymentAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentDetailId"));
 
-                    b.Property<string>("CarNumber")
+                    b.Property<string>("CardNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
-                    b.Property<string>("CardOwonerName")
+                    b.Property<string>("CardOwnerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("ExpiratoinDate")
+                    b.Property<string>("ExpirationDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(5)");
 
                     b.Property<string>("SecurityCode")
                         .IsRequired()
+                        .HasMaxLength(3)
                         .HasColumnType("nvarchar(3)");
 
                     b.HasKey("PaymentDetailId");

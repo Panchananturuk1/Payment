@@ -1,8 +1,8 @@
 export class PaymentDetail {
 
-    paymentDetailId:number = 0
-    cardOwonerName: string = ""
-    carNumber: string = ""
-    expiratoinDate: string = ""
-    securityCode: string = ""
+    paymentDetailId:number = 0;
+    cardOwnerName: string = "";
+    cardNumber: string = "";
+    expirationDate: string = "";
+    securityCode: string = "";
 }

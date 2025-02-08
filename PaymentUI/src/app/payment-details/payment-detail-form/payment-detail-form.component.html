@@ -1,1 +1,68 @@
-<p><b>payment-detail-form works!</b></p>
+<form #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="paymentDetailId" [value]="service.formData.paymentDetailId">
+    
+    <div class="mb-3">
+        <label for="">Card Owner Name</label>
+        <input class="form-control form-control-lg"
+            placeholder="Name On Card"
+            #cardOwnerName="ngModel" name="cardOwnerName"
+            [(ngModel)]="service.formData.cardOwnerName"
+            required minlength="1" maxlength="100" 
+            [ngClass]="{'is-invalid': cardOwnerName.invalid && cardOwnerName.touched}">
+        <div *ngIf="cardOwnerName.invalid && cardOwnerName.touched" class="invalid-feedback">
+            <small *ngIf="cardOwnerName.errors?.['required']">Card owner name is required.</small>
+            <small *ngIf="cardOwnerName.errors?.['maxlength']">Card owner name cannot exceed 100 characters.</small>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="">Card Number</label>
+        <input class="form-control form-control-lg"
+            placeholder="16 Digit Card Number"
+            #cardNumber="ngModel" name="cardNumber"
+            [(ngModel)]="service.formData.cardNumber"
+            required minlength="16" maxlength="16" pattern="^[0-9]{16}$"
+            [ngClass]="{'is-invalid': cardNumber.invalid && cardNumber.touched}">
+        <div *ngIf="cardNumber.invalid && cardNumber.touched" class="invalid-feedback">
+            <small *ngIf="cardNumber.errors?.['required']">Card number is required.</small>
+            <small *ngIf="cardNumber.errors?.['pattern']">Card number must be exactly 16 digits and numeric.</small>
+            <small *ngIf="cardNumber.errors?.['maxlength']">Card number cannot exceed 16 digits.</small>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="">Security Code</label>
+            <input class="form-control form-control-lg"
+                placeholder="CVV"
+                #securityCode="ngModel" name="securityCode"
+                [(ngModel)]="service.formData.securityCode"
+                required minlength="3" maxlength="3" pattern="^[0-9]{3}$"
+                [ngClass]="{'is-invalid': securityCode.invalid && securityCode.touched}">
+            <div *ngIf="securityCode.invalid && securityCode.touched" class="invalid-feedback">
+                <small *ngIf="securityCode.errors?.['required']">Security code is required.</small>
+                <small *ngIf="securityCode.errors?.['pattern']">Security code must be exactly 3 digits and numeric.</small>
+                <small *ngIf="securityCode.errors?.['maxlength']">Security code cannot exceed 3 digits.</small>
+            </div>
+        </div>
+        <div class="mb-3 col-6">
+            <label for="">Valid Through</label>
+            <input class="form-control form-control-lg"
+                placeholder="MM/YY"
+                #expirationDate="ngModel" name="expirationDate"
+                [(ngModel)]="service.formData.expirationDate"
+                required pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+                [ngClass]="{'is-invalid': expirationDate.invalid && expirationDate.touched}">
+            <div *ngIf="expirationDate.invalid && expirationDate.touched" class="invalid-feedback">
+                <small *ngIf="expirationDate.errors?.['required']">Expiration date is required.</small>
+                <small *ngIf="expirationDate.errors?.['pattern']">Expiration date must follow MM/YY format.</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-grid">
+        <button class="btn btn-lg btn-success" type="submit" [disabled]="form.invalid">
+            Submit
+        </button>
+    </div>
+</form>

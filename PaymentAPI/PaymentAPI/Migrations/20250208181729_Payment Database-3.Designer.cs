@@ -11,8 +11,8 @@ using PaymentAPI.Models;
 namespace PaymentAPI.Migrations
 {
     [DbContext(typeof(PaymentDetailContext))]
-    [Migration("20250205155123_PaymentDB Migration")]
-    partial class PaymentDBMigration
+    [Migration("20250208181729_Payment Database-3")]
+    partial class PaymentDatabase3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,20 +32,22 @@ namespace PaymentAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentDetailId"));
 
-                    b.Property<string>("CarNumber")
+                    b.Property<string>("CardNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
-                    b.Property<string>("CardOwonerName")
+                    b.Property<string>("CardOwnerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("ExpiratoinDate")
+                    b.Property<string>("ExpirationDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(5)");
 
                     b.Property<string>("SecurityCode")
                         .IsRequired()
+                        .HasMaxLength(3)
                         .HasColumnType("nvarchar(3)");
 
                     b.HasKey("PaymentDetailId");
