@@ -35,7 +35,7 @@
             <label for="">Security Code</label>
             <input class="form-control form-control-lg"
                 placeholder="CVV"
-                #securityCode="ngModel" name="securityCode"
+                #securityCode="ngModel" name="securityCode" type="password"
                 [(ngModel)]="service.formData.securityCode"
                 required minlength="3" maxlength="3" pattern="^[0-9]{3}$"
                 [ngClass]="{'is-invalid': securityCode.invalid && securityCode.touched}">
