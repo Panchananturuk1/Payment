@@ -1,4 +1,4 @@
-# Project Name
+# Payment Detail Register
 
 ## Description
 
